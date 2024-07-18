@@ -32,4 +32,4 @@ def detectCycle(self, head):
     return None
 
 def reverseKGroup(self, head, k):
-    
+    #todo
