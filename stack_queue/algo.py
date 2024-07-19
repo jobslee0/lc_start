@@ -7,4 +7,3 @@ def isValid(self, s):
         elif not stack or paren_map(c) != stack.pop():
             return False
     return not stack
-

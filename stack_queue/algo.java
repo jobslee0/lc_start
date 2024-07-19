@@ -58,3 +58,48 @@ class MyQueue {
         }
     }
 }
+
+// add remove element
+// offer poll peek
+class MyStack {
+    Queue<Integer> queue;
+
+    public MyStack() {
+        queue = new LinkedList<>();
+    }
+    
+    public void push(int x) {
+        queue.offer(x);
+        for (int i = 1; i < queue.size(); i++) {
+            queue.offer(queue.poll());
+        }
+    }
+    
+    public int pop() {
+        return queue.poll();
+    }
+    
+    public int top() {
+        return queue.peek();
+    }
+    
+    public boolean empty() {
+        return queue.isEmpty();
+    }
+}
+
+public boolean backspaceCompare(String s, String t) {
+    return build(s).equals(build(t));
+}
+
+private String build(String str) {
+    Stack<Character> stack = new Stack<>();
+    for (char c : str.toCharArray()) {
+        if ('#' != c) {
+            stack.push(c);
+        } else if (!stack.isEmpty()) {
+            stack.pop();
+        }
+    }
+    return String.valueOf(stack);
+}
